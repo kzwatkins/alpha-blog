@@ -20,7 +20,4 @@ ActiveRecord::Schema.define(version: 20160203143129) do
     t.text     "description"
   end
 
-  create_table "users", force: :cascade do |t|
-  end
-
 end
