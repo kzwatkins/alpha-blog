@@ -1,1 +1,26 @@
-<h1>The main page for an article (#index).</h1>
+<h1>Listing all Articles</h1>
+<p>
+	<%= link_to "Create new article", new_article_path %>
+</p>
+
+<table summary="All articles can be seen below">
+<tr>
+	<th>Title</th>
+	<th>Description</th>
+	<th>Article Path</th>
+</tr>
+
+<% @articles.each do |article| %>
+<tr>
+	<td><%= article.title %></td>
+	<td><%=  article.description %></td>
+	<td>	<%= link_to "Edit article", edit_article_path(article) %></td>
+	<td><%= link_to "Show article", article_path(article) %></td>
+</tr>
+<% end %>
+
+</table>
+
+<p>
+	<%= link_to "Reload list of articles", articles_path %>
+</p>
