@@ -7,7 +7,9 @@
 <tr>
 	<th>Title</th>
 	<th>Description</th>
-	<th>Article Path</th>
+	<th>Edit Article</th>
+	<th>Show Article</th>
+	<th>Destroy Article</th>
 </tr>
 
 <% @articles.each do |article| %>
@@ -16,11 +18,10 @@
 	<td><%=  article.description %></td>
 	<td>	<%= link_to "Edit article", edit_article_path(article) %></td>
 	<td><%= link_to "Show article", article_path(article) %></td>
+	<td><%= link_to "Remove article", article_path(article), method: :delete, data: {confirm: "Confirm article deletion (can't be undone)!"} %></td>
 </tr>
 <% end %>
 
 </table>
 
-<p>
-	<%= link_to "Reload list of articles", articles_path %>
-</p>
+<%= render "footer" %>

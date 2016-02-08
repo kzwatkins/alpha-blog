@@ -8,10 +8,8 @@
 	Description: <%= @article.description %>
 </p>
 
+<%= render "footer" %>
 <p>
-	<%= link_to "Return to list of articles", articles_path %>
-</p>
-
-<p>
-	<%= link_to "Edit current article", edit_article_path(@article) %>
+	<%= link_to "Edit current article", edit_article_path(@article) %> |
+	<%= link_to "Destroy Current Article", article_path(@article), method: :delete, data: {confirm: "Confirm you want to delete this article."} %>
 </p>
