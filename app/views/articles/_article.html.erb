@@ -1,0 +1,54 @@
+<% objs.each do |article| %>
+	<div class="row text-left">
+		<div class="col-xs-8" "col-xs-offset-2">
+			<div class="well well-lg">
+			
+				<div class="article-title">
+					<%= link_to article.title, article_path(article) %>
+				</div>	
+				
+				<div class="article-body">
+					<%=  truncate(article.description, length: 100) %>
+					
+					<div class="article-meta-details">
+							<small>
+									Created By: "<%= article.user.username if article.user %>",
+									Created <%= time_ago_in_words(article.created_at) %> ago,
+									Last Updated: <%= time_ago_in_words(article.updated_at) %> ago				
+							</small>
+					</div>
+				</div>
+				
+				<%= render "articles/articleactions", obj: article %>		
+				
+			</div>		
+		</div>	
+	</div>
+<% end %>
+
+<!--<p>
+	<%= link_to "Create new article", new_article_path %>
+</p>
+
+<table summary="All articles can be seen below">
+<tr>
+	<th>Title</th>
+	<th>Description</th>
+	<th>Edit Article</th>
+	<th>Show Article</th>
+	<th>Destroy Article</th>
+</tr>
+
+<% objs.each do |article| %>
+<tr>
+	<td><%= article.title %></td>
+	<td><%=  article.description %></td>
+	<td>	<%= link_to "Edit article", edit_article_path(article) %></td>
+	<td><%= link_to "Show article", article_path(article) %></td>
+	<td><%= link_to "Remove article", article_path(article), method: :delete, data: {confirm: "Confirm article deletion (can't be undone)!"} %></td>
+</tr>
+<% end %>
+
+</table>
+-->
+<%= render "shared/footer" %>
