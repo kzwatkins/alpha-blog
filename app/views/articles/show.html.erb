@@ -2,8 +2,10 @@
 <h2>Title: <%= @article.title %></h2>
 </div>
 	<div class="col-xs-8 col-xs-offset-2 text-left">
+	<% if @article.user %>
 	<div class="center">Created By:</div>
 		<%= render "users/gravatar", user: @article.user %>
+		<% end %>
 	<h4 class="center"><strong>Description: </strong></h4>
 	<hr>
 	<%= simple_format(@article.description) %>
