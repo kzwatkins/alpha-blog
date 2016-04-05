@@ -1,7 +1,9 @@
 <div class="text-center text-capitalize">
 <h2>Title: <%= @article.title %></h2>
 </div>
-	<div class="well col-xs-8 col-xs-offset-2 text-left">
+	<div class="col-xs-8 col-xs-offset-2 text-left">
+	<div class="center">Created By:</div>
+		<%= render "users/gravatar", user: @article.user %>
 	<h4 class="center"><strong>Description: </strong></h4>
 	<hr>
 	<%= simple_format(@article.description) %>
