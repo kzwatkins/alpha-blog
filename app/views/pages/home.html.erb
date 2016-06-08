@@ -1,6 +1,8 @@
 <div class="jumbotron">
   <h1>KW's Blog Home Page</h1>
-  <p><a class="btn btn-primary btn-lg btn-xlg" href="#" role="button">Sign Up!</a></p>
+  <p><!--<a class="btn btn-primary btn-lg btn-xlg" role="button"><%= link_to "Sign Up!", signup_path %></a-->
+  		<%= link_to "Sign Up!", signup_path, class: "btn btn-primary btn-lg btn-xlg", role: "button" %>
+  </p>
   
 
 <%= image_tag 'orange-fractal-spiral.jpg' %><br>

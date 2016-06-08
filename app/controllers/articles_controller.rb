@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 	before_action :find_article, only: [:edit, :update, :destroy, :show]
+	before_action :require_user, except: [:index, :show]
+	before_action :require_same_user, only: [:edit, :update, :destroy]
 	
 	def index
 		@articles = Article.paginate(page: params[:page], per_page: 3)
@@ -57,5 +59,12 @@ class ArticlesController < ApplicationController
 	
 		def article_params # whitelist the parameters
 			params.require(:article).permit(:title, :description)
+		end
+		
+		def require_same_user
+			if current_user != @article.user
+				flash[:danger] = "Silly wabbit!  You can't make changes to someone else's article!"
+				redirect_to root_path
+			end
 		end
 end

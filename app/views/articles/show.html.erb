@@ -11,4 +11,4 @@
 	<%= simple_format(@article.description) %>
 
 <%= render "shared/footer" %>
-<%= render "articleactions" , obj: @article %>
+<%= render "articleactions" , obj: @article, article_user: @article.user %>
